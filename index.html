@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JSON Display</title>
+  <title>API Simulation</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -18,17 +18,36 @@
   </style>
 </head>
 <body>
-  <h1>JSON Display</h1>
-  <pre id="jsonDisplay"></pre>
+  <h1>API Response</h1>
+  <pre id="apiResponse">Loading...</pre>
 
   <script>
-    // JSON object
-    const jsonData = {
-      "version": true
-    };
+    // Simulate an API call
+    function fetchAPIResponse() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          // Simulated JSON response
+          const apiResponse = {
+            "version": true
+          };
+          resolve(apiResponse);
+        }, 1000); // Simulate a delay of 1 second
+      });
+    }
 
-    // Display JSON in the pre element
-    document.getElementById('jsonDisplay').textContent = JSON.stringify(jsonData, null, 2);
+    // Fetch the API response and display it
+    async function displayAPIResponse() {
+      try {
+        const response = await fetchAPIResponse();
+        document.getElementById('apiResponse').textContent = JSON.stringify(response, null, 2);
+      } catch (error) {
+        document.getElementById('apiResponse').textContent = "Error fetching API response.";
+        console.error(error);
+      }
+    }
+
+    // Call the function to display the API response
+    displayAPIResponse();
   </script>
 </body>
 </html>
