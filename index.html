@@ -1,53 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>API Simulation</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
+{
+  "html": "<html>",
+  "head": {
+    "meta": {
+      "charset": "UTF-8"
+    },
+    "title": "Version Info"
+  },
+  "body": {
+    "h1": "Version Status",
+    "p": {
+      "id": "version",
+      "text": "Version: True"
     }
-    pre {
-      background-color: #f4f4f4;
-      padding: 15px;
-      border-radius: 5px;
-      border: 1px solid #ddd;
-    }
-  </style>
-</head>
-<body>
-  <h1>API Response</h1>
-  <pre id="apiResponse">Loading...</pre>
-
-  <script>
-    // Simulate an API call
-    function fetchAPIResponse() {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          // Simulated JSON response
-          const apiResponse = {
-            "version": true
-          };
-          resolve(apiResponse);
-        }, 1000); // Simulate a delay of 1 second
-      });
-    }
-
-    // Fetch the API response and display it
-    async function displayAPIResponse() {
-      try {
-        const response = await fetchAPIResponse();
-        document.getElementById('apiResponse').textContent = JSON.stringify(response, null, 2);
-      } catch (error) {
-        document.getElementById('apiResponse').textContent = "Error fetching API response.";
-        console.error(error);
-      }
-    }
-
-    // Call the function to display the API response
-    displayAPIResponse();
-  </script>
-</body>
-</html>
+  },
+  "html_end": "</html>"
+}
